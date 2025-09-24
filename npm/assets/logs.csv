@@ -1,0 +1,131 @@
+﻿"timestamp [UTC]",message,type,innermostMessage
+"24/09/2025, 08:09:17.697",,"System.InvalidOperationException","Binding parameters to complex objects (such as 'Object') uses Json.NET serialization. 
+1. Bind the parameter type as 'string' instead of 'Object' to get the raw values and avoid JSON deserialization, or
+2. Change the queue payload to be valid json. The JSON parser failed: Error parsing boolean value. Path '', line 1, position 1.
+"
+"24/09/2025, 08:09:17.696","Trigger Details: MessageIdArray: 113f35a4ae324d77b2e5b9b047b52fa3,e7195720c6b14a3b8a337986ece11d97, SequenceNumberArray: 12,16, DeliveryCountArray: 10,10, EnqueuedTimeUtcArray: 2025-09-24T08:09:08.5140000+00:00,2025-09-24T08:09:08.5140000+00:00, LockedUntilArray: 2025-09-24T08:10:17.6720000+00:00,2025-09-24T08:10:17.6720000+00:00, SessionId: (null)",,
+"24/09/2025, 08:09:17.696","Executing 'Functions.serviceBusTrigger' (Reason='(null)', Id=3cf76db0-928c-414a-8b8c-08a5330f8d00)",,
+"24/09/2025, 08:09:17.664",,"System.InvalidOperationException","Binding parameters to complex objects (such as 'Object') uses Json.NET serialization. 
+1. Bind the parameter type as 'string' instead of 'Object' to get the raw values and avoid JSON deserialization, or
+2. Change the queue payload to be valid json. The JSON parser failed: Error parsing boolean value. Path '', line 1, position 1.
+"
+"24/09/2025, 08:09:17.664","Trigger Details: MessageIdArray: 00d2ff8ae39b4f57886ee41b43b429fc, SequenceNumberArray: 13, DeliveryCountArray: 10, EnqueuedTimeUtcArray: 2025-09-24T08:09:08.5140000+00:00, LockedUntilArray: 2025-09-24T08:10:17.6250000+00:00, SessionId: (null)",,
+"24/09/2025, 08:09:17.664","Executing 'Functions.serviceBusTrigger' (Reason='(null)', Id=e61dea75-7c8b-4c82-b524-20729ca37640)",,
+"24/09/2025, 08:09:17.630",,"System.InvalidOperationException","Binding parameters to complex objects (such as 'Object') uses Json.NET serialization. 
+1. Bind the parameter type as 'string' instead of 'Object' to get the raw values and avoid JSON deserialization, or
+2. Change the queue payload to be valid json. The JSON parser failed: Error parsing boolean value. Path '', line 1, position 1.
+"
+"24/09/2025, 08:09:17.630","Trigger Details: MessageIdArray: 00d2ff8ae39b4f57886ee41b43b429fc, SequenceNumberArray: 13, DeliveryCountArray: 9, EnqueuedTimeUtcArray: 2025-09-24T08:09:08.5140000+00:00, LockedUntilArray: 2025-09-24T08:10:17.5940000+00:00, SessionId: (null)",,
+"24/09/2025, 08:09:17.630","Executing 'Functions.serviceBusTrigger' (Reason='(null)', Id=bb211505-5537-4b2c-92f1-b7e8687f0471)",,
+"24/09/2025, 08:09:17.589",,"System.InvalidOperationException","Binding parameters to complex objects (such as 'Object') uses Json.NET serialization. 
+1. Bind the parameter type as 'string' instead of 'Object' to get the raw values and avoid JSON deserialization, or
+2. Change the queue payload to be valid json. The JSON parser failed: Error parsing boolean value. Path '', line 1, position 1.
+"
+"24/09/2025, 08:09:17.589","Trigger Details: MessageIdArray: e7195720c6b14a3b8a337986ece11d97,113f35a4ae324d77b2e5b9b047b52fa3,00d2ff8ae39b4f57886ee41b43b429fc, SequenceNumberArray: 16,12,13, DeliveryCountArray: 9,9,8, EnqueuedTimeUtcArray: 2025-09-24T08:09:08.5140000+00:00,2025-09-24T08:09:08.5140000+00:00,2025-09-24T08:09:08.5140000+00:00, LockedUntilArray: 2025-09-24T08:10:17.5630000+00:00,2025-09-24T08:10:17.5630000+00:00,2025-09-24T08:10:17.5630000+00:00, SessionId: (null)",,
+"24/09/2025, 08:09:17.589","Executing 'Functions.serviceBusTrigger' (Reason='(null)', Id=62e2004b-94fa-4c30-950f-97e7b85ae658)",,
+"24/09/2025, 08:09:17.555",,"System.InvalidOperationException","Binding parameters to complex objects (such as 'Object') uses Json.NET serialization. 
+1. Bind the parameter type as 'string' instead of 'Object' to get the raw values and avoid JSON deserialization, or
+2. Change the queue payload to be valid json. The JSON parser failed: Error parsing boolean value. Path '', line 1, position 1.
+"
+"24/09/2025, 08:09:17.554","Trigger Details: MessageIdArray: e7195720c6b14a3b8a337986ece11d97, SequenceNumberArray: 16, DeliveryCountArray: 8, EnqueuedTimeUtcArray: 2025-09-24T08:09:08.5140000+00:00, LockedUntilArray: 2025-09-24T08:10:17.5160000+00:00, SessionId: (null)",,
+"24/09/2025, 08:09:17.554","Executing 'Functions.serviceBusTrigger' (Reason='(null)', Id=674bb609-c41d-46cf-af88-da31e0c37640)",,
+"24/09/2025, 08:09:17.514",,"System.InvalidOperationException","Binding parameters to complex objects (such as 'Object') uses Json.NET serialization. 
+1. Bind the parameter type as 'string' instead of 'Object' to get the raw values and avoid JSON deserialization, or
+2. Change the queue payload to be valid json. The JSON parser failed: Error parsing boolean value. Path '', line 1, position 1.
+"
+"24/09/2025, 08:09:17.514","Trigger Details: MessageIdArray: d36f5d9309b44c59b631848a1b2ddd00,e7195720c6b14a3b8a337986ece11d97, SequenceNumberArray: 15,16, DeliveryCountArray: 10,7, EnqueuedTimeUtcArray: 2025-09-24T08:09:08.5140000+00:00,2025-09-24T08:09:08.5140000+00:00, LockedUntilArray: 2025-09-24T08:10:17.4850000+00:00,2025-09-24T08:10:17.4850000+00:00, SessionId: (null)",,
+"24/09/2025, 08:09:17.514","Executing 'Functions.serviceBusTrigger' (Reason='(null)', Id=db41cfca-8761-4446-abbc-d678105429d1)",,
+"24/09/2025, 08:09:17.455",,"System.InvalidOperationException","Binding parameters to complex objects (such as 'Object') uses Json.NET serialization. 
+1. Bind the parameter type as 'string' instead of 'Object' to get the raw values and avoid JSON deserialization, or
+2. Change the queue payload to be valid json. The JSON parser failed: Error parsing boolean value. Path '', line 1, position 1.
+"
+"24/09/2025, 08:09:17.455","Trigger Details: MessageIdArray: 113f35a4ae324d77b2e5b9b047b52fa3,d36f5d9309b44c59b631848a1b2ddd00,00d2ff8ae39b4f57886ee41b43b429fc,e7195720c6b14a3b8a337986ece11d97, SequenceNumberArray: 12,15,13,16, DeliveryCountArray: 8,9,7,6, EnqueuedTimeUtcArray: 2025-09-24T08:09:08.5140000+00:00,2025-09-24T08:09:08.5140000+00:00,2025-09-24T08:09:08.5140000+00:00,2025-09-24T08:09:08.5140000+00:00, LockedUntilArray: 2025-09-24T08:10:17.4260000+00:00,2025-09-24T08:10:17.4260000+00:00,2025-09-24T08:10:17.4260000+00:00,2025-09-24T08:10:17.4260000+00:00, SessionId: (null)",,
+"24/09/2025, 08:09:17.455","Executing 'Functions.serviceBusTrigger' (Reason='(null)', Id=d828f43d-111c-434c-8a56-d2df1580c62e)",,
+"24/09/2025, 08:09:17.415",,"System.InvalidOperationException","Binding parameters to complex objects (such as 'Object') uses Json.NET serialization. 
+1. Bind the parameter type as 'string' instead of 'Object' to get the raw values and avoid JSON deserialization, or
+2. Change the queue payload to be valid json. The JSON parser failed: Error parsing boolean value. Path '', line 1, position 1.
+"
+"24/09/2025, 08:09:17.414","Trigger Details: MessageIdArray: 113f35a4ae324d77b2e5b9b047b52fa3,d36f5d9309b44c59b631848a1b2ddd00, SequenceNumberArray: 12,15, DeliveryCountArray: 7,8, EnqueuedTimeUtcArray: 2025-09-24T08:09:08.5140000+00:00,2025-09-24T08:09:08.5140000+00:00, LockedUntilArray: 2025-09-24T08:10:17.3750000+00:00,2025-09-24T08:10:17.3750000+00:00, SessionId: (null)",,
+"24/09/2025, 08:09:17.414","Executing 'Functions.serviceBusTrigger' (Reason='(null)', Id=ebe94bac-55bf-4113-8993-8a159d9e435e)",,
+"24/09/2025, 08:09:17.378",,"System.InvalidOperationException","Binding parameters to complex objects (such as 'Object') uses Json.NET serialization. 
+1. Bind the parameter type as 'string' instead of 'Object' to get the raw values and avoid JSON deserialization, or
+2. Change the queue payload to be valid json. The JSON parser failed: Error parsing boolean value. Path '', line 1, position 1.
+"
+"24/09/2025, 08:09:17.378","Trigger Details: MessageIdArray: 113f35a4ae324d77b2e5b9b047b52fa3,86dc2fbd083e445eb95d659115a789c3,00d2ff8ae39b4f57886ee41b43b429fc,d36f5d9309b44c59b631848a1b2ddd00, SequenceNumberArray: 12,14,13,15, DeliveryCountArray: 6,10,6,7, EnqueuedTimeUtcArray: 2025-09-24T08:09:08.5140000+00:00,2025-09-24T08:09:08.5140000+00:00,2025-09-24T08:09:08.5140000+00:00,2025-09-24T08:09:08.5140000+00:00, LockedUntilArray: 2025-09-24T08:10:17.3440000+00:00,2025-09-24T08:10:17.3440000+00:00,2025-09-24T08:10:17.3440000+00:00,2025-09-24T08:10:17.3440000+00:00, SessionId: (null)",,
+"24/09/2025, 08:09:17.378","Executing 'Functions.serviceBusTrigger' (Reason='(null)', Id=d6fbc68e-9808-4243-aa40-062371b4dac0)",,
+"24/09/2025, 08:09:17.334",,"System.InvalidOperationException","Binding parameters to complex objects (such as 'Object') uses Json.NET serialization. 
+1. Bind the parameter type as 'string' instead of 'Object' to get the raw values and avoid JSON deserialization, or
+2. Change the queue payload to be valid json. The JSON parser failed: Error parsing boolean value. Path '', line 1, position 1.
+"
+"24/09/2025, 08:09:17.334","Trigger Details: MessageIdArray: 86dc2fbd083e445eb95d659115a789c3,113f35a4ae324d77b2e5b9b047b52fa3,00d2ff8ae39b4f57886ee41b43b429fc,d36f5d9309b44c59b631848a1b2ddd00,e7195720c6b14a3b8a337986ece11d97, SequenceNumberArray: 14,12,13,15,16, DeliveryCountArray: 9,5,5,6,5, EnqueuedTimeUtcArray: 2025-09-24T08:09:08.5140000+00:00,2025-09-24T08:09:08.5140000+00:00,2025-09-24T08:09:08.5140000+00:00,2025-09-24T08:09:08.5140000+00:00,2025-09-24T08:09:08.5140000+00:00, LockedUntilArray: 2025-09-24T08:10:17.2970000+00:00,2025-09-24T08:10:17.3130000+00:00,2025-09-24T08:10:17.3130000+00:00,2025-09-24T08:10:17.3130000+00:00,2025-09-24T08:10:17.3130000+00:00, SessionId: (null)",,
+"24/09/2025, 08:09:17.333","Executing 'Functions.serviceBusTrigger' (Reason='(null)', Id=214bcbca-1703-40f4-bd6a-934480900ba6)",,
+"24/09/2025, 08:09:17.296",,"System.InvalidOperationException","Binding parameters to complex objects (such as 'Object') uses Json.NET serialization. 
+1. Bind the parameter type as 'string' instead of 'Object' to get the raw values and avoid JSON deserialization, or
+2. Change the queue payload to be valid json. The JSON parser failed: Error parsing boolean value. Path '', line 1, position 1.
+"
+"24/09/2025, 08:09:17.296","Trigger Details: MessageIdArray: 86dc2fbd083e445eb95d659115a789c3, SequenceNumberArray: 14, DeliveryCountArray: 8, EnqueuedTimeUtcArray: 2025-09-24T08:09:08.5140000+00:00, LockedUntilArray: 2025-09-24T08:10:17.2660000+00:00, SessionId: (null)",,
+"24/09/2025, 08:09:17.296","Executing 'Functions.serviceBusTrigger' (Reason='(null)', Id=411f6c68-f59b-45ab-9051-7cf667727cae)",,
+"24/09/2025, 08:09:17.264",,"System.InvalidOperationException","Binding parameters to complex objects (such as 'Object') uses Json.NET serialization. 
+1. Bind the parameter type as 'string' instead of 'Object' to get the raw values and avoid JSON deserialization, or
+2. Change the queue payload to be valid json. The JSON parser failed: Error parsing boolean value. Path '', line 1, position 1.
+"
+"24/09/2025, 08:09:17.264","Trigger Details: MessageIdArray: 86dc2fbd083e445eb95d659115a789c3, SequenceNumberArray: 14, DeliveryCountArray: 7, EnqueuedTimeUtcArray: 2025-09-24T08:09:08.5140000+00:00, LockedUntilArray: 2025-09-24T08:10:17.2350000+00:00, SessionId: (null)",,
+"24/09/2025, 08:09:17.264","Executing 'Functions.serviceBusTrigger' (Reason='(null)', Id=6cb4a50d-752b-4850-b5d9-7de1e2a0c4d0)",,
+"24/09/2025, 08:09:17.215",,"System.InvalidOperationException","Binding parameters to complex objects (such as 'Object') uses Json.NET serialization. 
+1. Bind the parameter type as 'string' instead of 'Object' to get the raw values and avoid JSON deserialization, or
+2. Change the queue payload to be valid json. The JSON parser failed: Error parsing boolean value. Path '', line 1, position 1.
+"
+"24/09/2025, 08:09:17.214","Trigger Details: MessageIdArray: 86dc2fbd083e445eb95d659115a789c3,113f35a4ae324d77b2e5b9b047b52fa3,00d2ff8ae39b4f57886ee41b43b429fc,d36f5d9309b44c59b631848a1b2ddd00,e7195720c6b14a3b8a337986ece11d97, SequenceNumberArray: 14,12,13,15,16, DeliveryCountArray: 6,4,4,5,4, EnqueuedTimeUtcArray: 2025-09-24T08:09:08.5140000+00:00,2025-09-24T08:09:08.5140000+00:00,2025-09-24T08:09:08.5140000+00:00,2025-09-24T08:09:08.5140000+00:00,2025-09-24T08:09:08.5140000+00:00, LockedUntilArray: 2025-09-24T08:10:17.1880000+00:00,2025-09-24T08:10:17.1880000+00:00,2025-09-24T08:10:17.1880000+00:00,2025-09-24T08:10:17.1880000+00:00,2025-09-24T08:10:17.1880000+00:00, SessionId: (null)",,
+"24/09/2025, 08:09:17.214","Executing 'Functions.serviceBusTrigger' (Reason='(null)', Id=a4d78cd5-ec2d-4a95-aec4-6d6803df1b2d)",,
+"24/09/2025, 08:09:17.167",,"System.InvalidOperationException","Binding parameters to complex objects (such as 'Object') uses Json.NET serialization. 
+1. Bind the parameter type as 'string' instead of 'Object' to get the raw values and avoid JSON deserialization, or
+2. Change the queue payload to be valid json. The JSON parser failed: Error parsing boolean value. Path '', line 1, position 1.
+"
+"24/09/2025, 08:09:17.166","Trigger Details: MessageIdArray: 86dc2fbd083e445eb95d659115a789c3, SequenceNumberArray: 14, DeliveryCountArray: 5, EnqueuedTimeUtcArray: 2025-09-24T08:09:08.5140000+00:00, LockedUntilArray: 2025-09-24T08:10:17.1410000+00:00, SessionId: (null)",,
+"24/09/2025, 08:09:17.166","Executing 'Functions.serviceBusTrigger' (Reason='(null)', Id=ffb71a13-f5fa-4081-954c-25d6241f730f)",,
+"24/09/2025, 08:09:17.131",,"System.InvalidOperationException","Binding parameters to complex objects (such as 'Object') uses Json.NET serialization. 
+1. Bind the parameter type as 'string' instead of 'Object' to get the raw values and avoid JSON deserialization, or
+2. Change the queue payload to be valid json. The JSON parser failed: Error parsing boolean value. Path '', line 1, position 1.
+"
+"24/09/2025, 08:09:17.130","Trigger Details: MessageIdArray: d36f5d9309b44c59b631848a1b2ddd00,86dc2fbd083e445eb95d659115a789c3, SequenceNumberArray: 15,14, DeliveryCountArray: 4,4, EnqueuedTimeUtcArray: 2025-09-24T08:09:08.5140000+00:00,2025-09-24T08:09:08.5140000+00:00, LockedUntilArray: 2025-09-24T08:10:17.0940000+00:00,2025-09-24T08:10:17.0940000+00:00, SessionId: (null)",,
+"24/09/2025, 08:09:17.130","Executing 'Functions.serviceBusTrigger' (Reason='(null)', Id=23a71cff-2b55-4bc7-8fbd-cc67250e2811)",,
+"24/09/2025, 08:09:17.091",,"System.InvalidOperationException","Binding parameters to complex objects (such as 'Object') uses Json.NET serialization. 
+1. Bind the parameter type as 'string' instead of 'Object' to get the raw values and avoid JSON deserialization, or
+2. Change the queue payload to be valid json. The JSON parser failed: Error parsing boolean value. Path '', line 1, position 1.
+"
+"24/09/2025, 08:09:17.091","Trigger Details: MessageIdArray: 113f35a4ae324d77b2e5b9b047b52fa3,00d2ff8ae39b4f57886ee41b43b429fc,86dc2fbd083e445eb95d659115a789c3,d36f5d9309b44c59b631848a1b2ddd00,e7195720c6b14a3b8a337986ece11d97, SequenceNumberArray: 12,13,14,15,16, DeliveryCountArray: 3,3,3,3,3, EnqueuedTimeUtcArray: 2025-09-24T08:09:08.5140000+00:00,2025-09-24T08:09:08.5140000+00:00,2025-09-24T08:09:08.5140000+00:00,2025-09-24T08:09:08.5140000+00:00,2025-09-24T08:09:08.5140000+00:00, LockedUntilArray: 2025-09-24T08:10:17.0630000+00:00,2025-09-24T08:10:17.0630000+00:00,2025-09-24T08:10:17.0630000+00:00,2025-09-24T08:10:17.0630000+00:00,2025-09-24T08:10:17.0630000+00:00, SessionId: (null)",,
+"24/09/2025, 08:09:17.091","Executing 'Functions.serviceBusTrigger' (Reason='(null)', Id=12dfcd7d-a6b5-4cf5-ac55-69d0d22f6f24)",,
+"24/09/2025, 08:09:16.958",,"System.InvalidOperationException","Binding parameters to complex objects (such as 'Object') uses Json.NET serialization. 
+1. Bind the parameter type as 'string' instead of 'Object' to get the raw values and avoid JSON deserialization, or
+2. Change the queue payload to be valid json. The JSON parser failed: Error parsing boolean value. Path '', line 1, position 1.
+"
+"24/09/2025, 08:09:16.958","Trigger Details: MessageIdArray: 00d2ff8ae39b4f57886ee41b43b429fc,113f35a4ae324d77b2e5b9b047b52fa3,86dc2fbd083e445eb95d659115a789c3,d36f5d9309b44c59b631848a1b2ddd00,e7195720c6b14a3b8a337986ece11d97, SequenceNumberArray: 13,12,14,15,16, DeliveryCountArray: 2,2,2,2,2, EnqueuedTimeUtcArray: 2025-09-24T08:09:08.5140000+00:00,2025-09-24T08:09:08.5140000+00:00,2025-09-24T08:09:08.5140000+00:00,2025-09-24T08:09:08.5140000+00:00,2025-09-24T08:09:08.5140000+00:00, LockedUntilArray: 2025-09-24T08:10:16.9220000+00:00,2025-09-24T08:10:16.9220000+00:00,2025-09-24T08:10:16.9220000+00:00,2025-09-24T08:10:16.9220000+00:00,2025-09-24T08:10:16.9220000+00:00, SessionId: (null)",,
+"24/09/2025, 08:09:16.958","Executing 'Functions.serviceBusTrigger' (Reason='(null)', Id=94088353-adc1-4143-97cf-4bad2a9eb1d1)",,
+"24/09/2025, 08:09:16.874",,"System.InvalidOperationException","Binding parameters to complex objects (such as 'Object') uses Json.NET serialization. 
+1. Bind the parameter type as 'string' instead of 'Object' to get the raw values and avoid JSON deserialization, or
+2. Change the queue payload to be valid json. The JSON parser failed: Error parsing boolean value. Path '', line 1, position 1.
+"
+"24/09/2025, 08:09:16.872","Trigger Details: MessageIdArray: 113f35a4ae324d77b2e5b9b047b52fa3,00d2ff8ae39b4f57886ee41b43b429fc,86dc2fbd083e445eb95d659115a789c3,d36f5d9309b44c59b631848a1b2ddd00,e7195720c6b14a3b8a337986ece11d97, SequenceNumberArray: 12,13,14,15,16, DeliveryCountArray: 1,1,1,1,1, EnqueuedTimeUtcArray: 2025-09-24T08:09:08.5140000+00:00,2025-09-24T08:09:08.5140000+00:00,2025-09-24T08:09:08.5140000+00:00,2025-09-24T08:09:08.5140000+00:00,2025-09-24T08:09:08.5140000+00:00, LockedUntilArray: 2025-09-24T08:10:16.8130000+00:00,2025-09-24T08:10:16.8130000+00:00,2025-09-24T08:10:16.8130000+00:00,2025-09-24T08:10:16.8130000+00:00,2025-09-24T08:10:16.8130000+00:00, SessionId: (null)",,
+"24/09/2025, 08:09:16.871","Executing 'Functions.serviceBusTrigger' (Reason='(null)', Id=436634a6-542c-4b60-bac5-03117796a983)",,
+"24/09/2025, 08:09:16.741","Worker process started and initialized.",,
+"24/09/2025, 08:09:16.498","Job host started",,
+"24/09/2025, 08:09:16.498","Host started (91ms)",,
+"24/09/2025, 08:09:16.423","Host initialized (16ms)",,
+"24/09/2025, 08:09:16.423","Initializing function HTTP routes
+No HTTP routes mapped
+",,
+"24/09/2025, 08:09:16.423","HttpOptions
+{
+  ""DynamicThrottlesEnabled"": false,
+  ""EnableChunkedRequestBinding"": false,
+  ""MaxConcurrentRequests"": -1,
+  ""MaxOutstandingRequests"": -1,
+  ""RoutePrefix"": ""api""
+}",,
+"24/09/2025, 08:09:16.421","Function group target is function:servicebustrigger",,
+"24/09/2025, 08:09:16.419","The 'AutoCompleteMessages' option has been overriden to 'False' value for 'Functions.serviceBusTrigger' function.",,
+"24/09/2025, 08:09:16.418","Found the following functions:
+Host.Functions.serviceBusTrigger
+",,
+"24/09/2025, 08:09:16.412","Generating 1 job function(s)",,
+"24/09/2025, 08:09:16.409","1 functions loaded",,
