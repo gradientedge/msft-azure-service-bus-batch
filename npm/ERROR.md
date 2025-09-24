@@ -34,8 +34,6 @@ This page documents the current issues found while using the npm-based example w
 
 ### Local 
 
-- Screenshots: local (``) and Azure (``). Raw export: `./assets/logs.csv`.
-
 ![Local](./assets/function-execution-local-error.png)
 
 ### Azure 
