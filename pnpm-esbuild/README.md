@@ -1,6 +1,6 @@
 # Experiment
 
-The purpose of the experiment is to test configuration for OTEL support.
+The purpose of the experiment is to test configuration for service bus extension support.
 
 Function setup:
 - pnpm

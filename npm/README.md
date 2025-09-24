@@ -1,6 +1,6 @@
 # Experiment
 
-The purpose of the experiment is to test configuration for OTEL support.
+The purpose of the experiment is to test configuration for service bus extension support.
 
 Function setup:
 - npm
@@ -50,6 +50,7 @@ AZ:
 └── typescript@5.9.2
 
 ```
+
 ## Error
 
 For full list of errors see [error page](./ERROR.md)

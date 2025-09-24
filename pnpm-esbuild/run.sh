@@ -13,7 +13,7 @@ pnpm install --prefer-offline
 {
   echo "# Experiment"
   echo
-  echo "The purpose of the experiment is to test configuration for OTEL support."
+  echo "The purpose of the experiment is to test configuration for service bus extension support."
   echo
   echo "Function setup:"
   echo "- pnpm"
