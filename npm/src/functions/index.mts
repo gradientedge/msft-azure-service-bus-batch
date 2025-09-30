@@ -1,36 +1,155 @@
 import "@azure/functions-extensions-servicebus";
-// import { ServiceBusClient } from "@azure/service-bus"
-// import { type ServiceBusMessageContext } from "@azure/functions-extensions-servicebus"
-// import { ServiceBusMessageActions } from "@azure/functions-extensions-servicebus/dist/azure-functions-extensions-servicebus"
-import { app, InvocationContext } from "@azure/functions";
+import { ServiceBusReceivedMessage } from '@azure/service-bus';
+import { ServiceBusMessageContext } from "@azure/functions-extensions-servicebus"
+// it would be good to have access to it
+// @ts-ignore
+import { ServiceBusMessageActions } from "@azure/functions-extensions-servicebus/dist/azure-functions-extensions-servicebus"
+import { app, InvocationContext, InvocationContextExtraInputs } from "@azure/functions";
+import { setTimeout as sleep } from "timers/promises";
 
-export async function serviceBusTrigger1(
-  ...args: unknown[]
-  // serviceBusClient: ServiceBusClient,
-  // message: unknown,
-  // context: InvocationContext
-): Promise<void> {
-  console.log('ServiceBus function invoked with args:', args);
-  // context.log(
-  //   `Service Bus function processed message: ${JSON.stringify(message)}`
-  // );
-  // try {
-  //   //Actual Message
-  //   context.log("triggerMetadata: ", context.triggerMetadata);
-  //   context.log('Completing the message', ServiceBusMessageContext.messages[0]);
-  //   //Use serviceBusMessageActions to action on the messages
-  //   await ServiceBusMessageContext.serviceBusMessageActions.complete(ServiceBusMessageContext.messages[0]);
-  //   context.log('Completing the body', ServiceBusMessageContext.messages[0].body);
-  // }
+async function processMessage(body: string, context: InvocationContext): Promise<void> {
+  if (body === "Nikolaus Kopernikus") {
+    context.log('[PROCESSMSG] Nikolaus Kopernikus - abandonding', body);
+    throw Error("Abandoning message for testing");
+  } else if (body === "Marie Curie") {
+    // set have 10 seconds lock duration
+    context.log('[PROCESSMSG] Marie Curie - sleeping for 11 seconds to test renew lock', body);
+    await sleep(8000);
+    context.log('[PROCESSMSG] Marie Curie - completing message', body);
+  } else {
+    context.log('[PROCESSMSG] Other - completed message', body);
+  }
+}
+
+function handler(messages: Array<string>, context: InvocationContext): Promise<Array<PromiseSettledResult<void>>> {
+  return Promise.allSettled(messages.map(msg => processMessage(msg, context)))
+}
+
+class MessageCompleter {
+
+  #mutex: Promise<void>
+  timerId: NodeJS.Timeout = setTimeout(() => { }, 0)
+
+  constructor(private context: ServiceBusMessageContext, private index: number, private ctx: InvocationContext) {
+    this.#mutex = Promise.resolve();
+    this.#watchMessageLockTimeout()
+  }
+
+  get message(): ServiceBusReceivedMessage {
+    if (Array.isArray(this.context.messages)) {
+      return this.context.messages[this.index];
+    }
+    return this.context.messages
+  }
+
+  #watchMessageLockTimeout(): void {
+    this.timerId = setTimeout(async () => {
+      this.#mutex.then(async () => {
+        this.ctx.log('[MESSAGECOMPLETER][LOCK] Renewing lock for message:', this.message.messageId);
+        const lockResult = await this.context.actions.renewMessageLock(this.message)
+        // returns undefined
+        this.ctx.log("[MESSAGECOMPLETER][LOCK] Lock result", typeof lockResult);
+        // [2025-09-30T14:28:04.207Z] node exited with code 1 (0x1). Abandon request failed: {,  message: '9 FAILED_PRECONDITION: LockToken 7efa0f9a-8158-42de-a75f-58bc73032c5d not found.',,LanguageWorkerConsol
+        // eLog[error] Worker uncaught exception (learn more: https://go.microsoft.com/fwlink/?linkid=2097909 ): Error: 9 FAILED_PRECONDITION: LockToken 7efa0f9a-8158-42de-a75f-58bc73032c5d not found.     at ca
+        // llErrorFromStatus (/Users/kamil/repo/ge/msft-azure-service-bus-batch/npm/node_modules/@grpc/grpc-js/build/src/call.js:32:19)     at Object.onReceiveStatus (/Users/kamil/repo/ge/msft-azure-service-bus
+        // -batch/npm/node_modules/@grpc/grpc-js/build/src/client.js:193:76)     at Object.onReceiveStatus (/Users/kamil/repo/ge/msft-azure-service-bus-batch/npm/node_modules/@grpc/grpc-js/build/src/client-inte
+        // rceptors.js:367:141)     at Object.onReceiveStatus (/Users/kamil/repo/ge/msft-azure-service-bus-batch/npm/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:327:181)     at /Users/kamil/repo
+        // /ge/msft-azure-service-bus-batch/npm/node_modules/@grpc/grpc-js/build/src/resolving-call.js:135:78     at process.processTicksAndRejections (node:internal/process/task_queues:85:11) for call at     a
+        // t ServiceClientImpl.makeUnaryRequest (/Users/kamil/repo/ge/msft-azure-service-bus-batch/npm/node_modules/@grpc/grpc-js/build/src/client.js:161:32)     at ServiceClientImpl.<anonymous> (/Users/kamil/r
+        // epo/ge/msft-azure-service-bus-batch/npm/node_modules/@grpc/grpc-js/build/src/make-client.js:105:19)     at /Users/kamil/repo/ge/msft-azure-service-bus-batch/npm/node_modules/@azure/functions-extensio
+        // ns-servicebus/dist/azure-functions-extensions-servicebus.js:221:29     at new Promise (<anonymous>)     at ServiceBusMessageActions.<anonymous> (/Users/kamil/repo/ge/msft-azure-service-bus-batch/npm/
+        // node_modules/@azure/functions-extensions-servicebus/dist/azure-functions-extensions-servicebus.js:216:20)     at Generator.next (<anonymous>)     at /Users/kamil/repo/ge/msft-azure-service-bus-batch/
+        // npm/node_modules/@azure/functions-extensions-servicebus/dist/azure-functions-extensions-servicebus.js:138:71     at new Promise (<anonymous>)     at __webpack_modules__../src/servicebus/ServiceBusMes
+        // sageActions.ts.__awaiter (/Users/kamil/repo/ge/msft-azure-service-bus-batch/npm/node_modules/@azure/functions-extensions-servicebus/dist/azure-functions-extensions-servicebus.js:134:12)     at Servic
+        // eBusMessageActions.abandon (/Users/kamil/repo/ge/msft-azure-service-bus-batch/npm/node_modules/@azure/functions-extensions-servicebus/dist/azure-functions-extensions-servicebus.js:214:16).
+
+        this.#watchMessageLockTimeout()
+      })
+      this.ctx.log('[MESSAGECOMPLETER][LOCK] Lock renewed for message:', this.message.messageId);
+      // this has to be configurable, ideally from the message
+    }, 9000)
+  }
+
+  async complete(): Promise<void> {
+    return await this.#mutex
+      .then(() => {
+        clearTimeout(this.timerId)
+        this.ctx.log(`[MESSAGECOMPLETER][COMPLETE] Clearing timer(${this.timerId}): ${this.message.messageId}`);
+      }).then(() => {
+        this.context.actions.complete(this.message)
+        // Simulate completing the message
+        this.ctx.log(`[MESSAGECOMPLETER][COMPLETE] Completing message: ${this.message.messageId}`);
+      })
+  }
+
+  async abandon(): Promise<void> {
+    return await this.#mutex
+      .then(() => {
+        clearTimeout(this.timerId)
+        console.log(`[MESSAGECOMPLETER][ABANDON] Clearing timer(${this.timerId}): ${this.message.messageId}`);
+      }).then(() => {
+        console.log("[MESSAGECOMPLETER][ABANDON] Abandoning message:", this.message.messageId, this.message.lockToken, this.message.body);
+        // Why does the second parameter is required? Can it be optional?
+        // @ts-ignore
+        this.context.actions.abandon(this.message);
+        console.log(`[MESSAGECOMPLETER][ABANDON] Abandoning message: ${this.message.messageId}`);
+      })
+  }
+
+}
+
+function middleware(handler: (messages: Array<string>, context: InvocationContext) => Promise<Array<PromiseSettledResult<void>>>): (serviceBusMessageContext: ServiceBusMessageContext, context: InvocationContext) => Promise<void> {
+
+  return async function(serviceBusMessageContext: ServiceBusMessageContext, context: InvocationContext) {
+    const payloads: Array<string> = []
+    const messageCompleters: Array<MessageCompleter> = []
+    const messages = Array.isArray(serviceBusMessageContext.messages) ? serviceBusMessageContext.messages : [serviceBusMessageContext.messages];
+    let index = 0
+    for (const message of messages) {
+      context.debug('Message body:', message.body);
+      const content = JSON.parse(message.body) as string;
+      payloads.push(content)
+      // @ts-ignore
+      messageCompleters.push(new MessageCompleter(serviceBusMessageContext, index, context));
+      // at the moment we have following properties missing from message object
+      // - message.lockedUntilUtc
+      // - message.enqueuedTimeUtc,
+      // which makes it hard to implement renew lock, unless hardcoding value configured for the queue
+      index += 1
+    }
+
+    const results = await handler(payloads, context)
+
+    // Later change to promise all
+    for (const [index, result] of results.entries()) {
+      const message = messages[index];
+      if (result.status === 'fulfilled') {
+        context.log('[MIDDLEWARE] Message processed successfully, completing:', message.messageId);
+        try {
+          await messageCompleters[index].complete()
+        } catch (err) {
+          context.error("[MIDDLEWARE] Completing message failed:", message.messageId, err);
+        }
+      } else {
+        //@ts-ignore
+        context.log("[MIDDLEWARE] Abandoning message lock token:", message.messageId, serviceBusMessageContext.messages[index].lockToken);
+        context.log('[MIDDLEWARE] Message processing failed, abandoning:', message.messageId);
+        try {
+          await messageCompleters[index].abandon()
+        } catch (err) {
+          context.error("[MIDDLEWARE] Abandon request failed:", message.messageId, err);
+        }
+      }
+    }
+  }
 }
 
 app.serviceBusQueue("serviceBusTrigger", {
   connection: "AzureWebJobsServiceBus",
   queueName: "messages",
   cardinality: "many",
-  // @ts-ignore
   sdkBinding: true, //Ensure this is set to true
   autoCompleteMessages: false, //Exposing this so that customer can take action on the messages
-  handler: serviceBusTrigger1,
+  handler: middleware(handler),
 });
 

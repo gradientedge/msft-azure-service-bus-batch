@@ -7,13 +7,15 @@
   "scripts": {
     "build": "tsc",
     "watch": "tsc -w",
-    "start": "func start",
+    "start": "npm run build && func start",
     "test": "echo \"No tests yet...\""
   },
   "dependencies": {
-    "@azure/functions": "4.8.0",
+    "@azure/functions": "4.7.4-preview",
     "@azure/functions-extensions-servicebus": "0.2.0-preview",
-    "@azure/service-bus": "^7.9.5"
+    "@azure/identity": "^4.12.0",
+    "@azure/service-bus": "^7.9.5",
+    "minimist": "^1.2.8"
   },
   "devDependencies": {
     "@types/minimist": "^1.2.5",

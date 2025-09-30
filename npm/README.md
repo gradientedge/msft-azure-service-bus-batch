@@ -41,11 +41,12 @@ AZ:
 ```text
 @msft-azure-service-bus-batch/functions-npm@1.0.0 /Users/kamil/repo/ge/msft-azure-service-bus-batch/npm
 ├── @azure/functions-extensions-servicebus@0.2.0-preview
-├── @azure/functions@4.8.0
+├── @azure/functions@4.7.4-preview
 ├── @azure/service-bus@7.9.5
 ├── @types/minimist@1.2.5
 ├── @types/node@22.18.0
 ├── azure-functions-core-tools@4.2.2
+├── minimist@1.2.8
 ├── rimraf@6.0.1
 └── typescript@5.9.2
 

@@ -8,6 +8,8 @@ It hosts two minimal examples to compare build/package workflows and runtime beh
 
 See Service Bus binding configuration options in the official docs: [Service Bus trigger and bindings](https://learn.microsoft.com/en-us/azure/azure-functions/functions-bindings-service-bus?tabs=isolated-process%2Cextensionv5&pivots=programming-language-javascript).
 
+See Service Bus [Sample](https://github.com/Azure-Samples/azure-functions-servicebus-sdk-bindings-nodejs/tree/main)
+
 ## Getting Started
 
 - npm example:
