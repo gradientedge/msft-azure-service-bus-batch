@@ -106,8 +106,9 @@ function middleware(handler: (messages: Array<string>, context: InvocationContex
 
     const results = await handler(payloads, context)
 
-    // Later change to promise all
-    for (const [index, result] of results.entries()) {
+    // Promise allSettled to ensure we attempt to complete/abandon all messages
+    // if they fails to complete they will be back to the queue after lock expires
+    await Promise.allSettled(results.map(async (result, index) => {
       const message = messages[index];
       if (result.status === 'fulfilled') {
         context.log('[MIDDLEWARE] Message processed successfully, completing:', message.messageId);
@@ -126,20 +127,8 @@ function middleware(handler: (messages: Array<string>, context: InvocationContex
           context.error("[MIDDLEWARE] Abandon request failed:", message.messageId, err);
         }
       }
-    }
+    }))
   }
-}
-
-async function serviceBusHandler(serviceBusMessageContext: ServiceBusMessageContext, context: InvocationContext): Promise<void> {
-
-  //@ts-ignore
-  const message = serviceBusMessageContext.messages[0]
-  setTimeout(async () => {
-    await serviceBusMessageContext.actions.renewMessageLock(message)
-  })
-  await sleep(11000)
-
-  await serviceBusMessageContext.actions.abandon(message)
 }
 
 app.serviceBusQueue("serviceBusTrigger", {
