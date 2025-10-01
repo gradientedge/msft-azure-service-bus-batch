@@ -56,3 +56,8 @@ AZ:
 
 For full list of errors see [error page](./ERROR.md)
 
+## Feedback
+
+- [ ] Expose the `ServiceBusMessageActions` type from the library.  
+- [ ] Include the `lockedUntilUtc` and `enqueuedTimeUtc` properties in the message object, as they are essential for determining lock renewal timing.  
+- [ ] Enhance the library to handle `renewMessageLock` automatically.  

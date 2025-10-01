@@ -4,7 +4,7 @@ import { ServiceBusMessageContext } from "@azure/functions-extensions-servicebus
 // it would be good to have access to it
 // @ts-ignore
 import { ServiceBusMessageActions } from "@azure/functions-extensions-servicebus/dist/azure-functions-extensions-servicebus"
-import { app, InvocationContext, InvocationContextExtraInputs } from "@azure/functions";
+import { app, InvocationContext } from "@azure/functions";
 import { setTimeout as sleep } from "timers/promises";
 
 async function processMessage(body: string, context: InvocationContext): Promise<void> {
@@ -75,8 +75,6 @@ class MessageCompleter {
         console.log(`[MESSAGECOMPLETER][ABANDON] Clearing timer(${this.timerId}): ${this.message.messageId}`);
       }).then(async () => {
         console.log("[MESSAGECOMPLETER][ABANDON] Abandoning message:", this.message.messageId, this.message.lockToken, this.message.body);
-        // Why does the second parameter is required? Can it be optional?
-        // @ts-ignore
         return this.context.actions.abandon(this.message).then(() => {
           console.log(`[MESSAGECOMPLETER][ABANDON] Abandoned message: ${this.message.messageId}`);
         });
@@ -95,7 +93,6 @@ function middleware(handler: (messages: Array<string>, context: InvocationContex
       context.debug('Message body:', message.body);
       const content = JSON.parse(message.body) as string;
       payloads.push(content)
-      // @ts-ignore
       messageCompleters.push(new MessageCompleter(serviceBusMessageContext, index, context));
       // at the moment we have following properties missing from message object
       // - message.lockedUntilUtc
